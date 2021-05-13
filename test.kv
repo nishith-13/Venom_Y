@@ -1,0 +1,50 @@
+MDBoxLayout:
+    orientation:'vertical'
+
+    MDToolbar:
+        title: 'Venom_y'
+
+    MDBottomNavigation:
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Tracker'
+            icon: 'online-tracking.png'
+
+            MDLabel:
+                text: 'tracking'
+                halign: 'center'
+
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'Encryptor'
+            icon: 'encrypted.png'
+
+            MDToolbar:
+                title: 'Encryptor'
+                pos_hint: {"top": 1}
+                
+            MDRoundFlatIconButton:
+                text: 'Select text/image file'
+                icon: 'folder'
+                pos_hint: {'center_x': .3, 'center_y': .7}
+                on_release: app.file_manager_open()
+
+            MDRoundFlatIconButton:
+                text: 'Encrypt'
+                pos_hint: {'center_x': .3, 'center_y': .6}
+                on_release: app.to_encrypt()
+
+            MDRoundFlatIconButton:
+                text: 'Decrypt'
+                pos_hint: {'center_x': .3, 'center_y': .5}
+                on_release: app.to_encrypt()
+
+        MDBottomNavigationItem:
+            name: 'screen 3'
+            text: 'Applock'
+            icon: 'pattern.png'
+
+            MDLabel:
+                text: 'Applock'
+                halign: 'center'
