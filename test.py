@@ -2,8 +2,12 @@ from kivymd.app import MDApp
 from kivymd.toast import toast
 from kivymd.uix.filemanager import MDFileManager
 
+
 class Testapp(MDApp):
     def build(self):
+        self.theme_cls.primary_palette = "BlueGray"
+        self.theme_cls.theme_style = "Dark"
+        self.title = "Venom_Y"
         return 
 
     def __init__(self, **kwargs):

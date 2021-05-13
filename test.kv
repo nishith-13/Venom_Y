@@ -1,15 +1,16 @@
 MDBoxLayout:
     orientation:'vertical'
 
-    MDToolbar:
-        title: 'Venom_y'
-
     MDBottomNavigation:
 
         MDBottomNavigationItem:
             name: 'screen 1'
             text: 'Tracker'
-            icon: 'online-tracking.png'
+            icon: 'eye-circle'
+
+            MDToolbar:
+                title: 'Tracker'
+                pos_hint: {"top": 1}
 
             MDLabel:
                 text: 'tracking'
@@ -18,32 +19,38 @@ MDBoxLayout:
         MDBottomNavigationItem:
             name: 'screen 2'
             text: 'Encryptor'
-            icon: 'encrypted.png'
+            icon: 'shield-lock'
 
             MDToolbar:
                 title: 'Encryptor'
                 pos_hint: {"top": 1}
                 
-            MDRoundFlatIconButton:
+            MDFillRoundFlatIconButton:
                 text: 'Select text/image file'
                 icon: 'folder'
                 pos_hint: {'center_x': .3, 'center_y': .7}
                 on_release: app.file_manager_open()
 
-            MDRoundFlatIconButton:
+            MDFillRoundFlatIconButton:
                 text: 'Encrypt'
+                icon: 'lock'
                 pos_hint: {'center_x': .3, 'center_y': .6}
                 on_release: app.to_encrypt()
 
-            MDRoundFlatIconButton:
+            MDFillRoundFlatIconButton:
                 text: 'Decrypt'
+                icon: 'lock-open-variant'
                 pos_hint: {'center_x': .3, 'center_y': .5}
                 on_release: app.to_encrypt()
 
         MDBottomNavigationItem:
             name: 'screen 3'
             text: 'Applock'
-            icon: 'pattern.png'
+            icon: 'lock-pattern'
+
+            MDToolbar:
+                title: 'Applock'
+                pos_hint: {"top": 1}
 
             MDLabel:
                 text: 'Applock'
