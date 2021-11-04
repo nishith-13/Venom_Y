@@ -12,9 +12,11 @@ MDBoxLayout:
                 title: 'Tracker'
                 pos_hint: {"top": 1}
 
-            MDLabel:
-                text: 'tracking'
-                halign: 'center'
+            MDRaisedButton:
+                text: 'Keylogger'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+                on_release: app.logger()
+
 
         MDBottomNavigationItem:
             name: 'screen 2'

